@@ -23,7 +23,6 @@ player_stats[0].text
 ,player_stats[2].text
 ,player_stats[3].text
 ,player_stats[4].text
-
 ]
 
 player1 = [
@@ -32,7 +31,6 @@ player1 = [
 ,player_stats[7].text
 ,player_stats[8].text
 ,player_stats[9].text
-
 ]
 
 player2 = [
@@ -46,6 +44,7 @@ player2 = [
 zipped_batsman1 = list(zip(header,player1))
 
 zipped_batsman2 = list(zip(header,player2))
+
 print (zipped_batsman1[0])
 print (zipped_batsman1[1])
 print (zipped_batsman1[2])
@@ -53,6 +52,7 @@ print (zipped_batsman1[3])
 print (zipped_batsman1[4])
 
 print("\n")
+
 print (zipped_batsman2[0])
 print (zipped_batsman2[1])
 print (zipped_batsman2[2])

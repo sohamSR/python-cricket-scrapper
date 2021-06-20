@@ -61,6 +61,52 @@ print (zipped_batsman2[4])
 
 
 print("\n")
+#-----------------------
+#Bowler
+header2 = [
+player_stats[15].text
+,player_stats[16].text
+,player_stats[17].text
+,player_stats[18].text
+,player_stats[19].text
+]
+
+
+bowler1 = [
+ player_stats[20].text
+,player_stats[21].text
+,player_stats[22].text
+,player_stats[23].text
+,player_stats[24].text
+]
+
+bowler2 = [
+ player_stats[25].text
+,player_stats[26].text
+,player_stats[27].text
+,player_stats[28].text
+,player_stats[29].text
+]
+
+zipped_bowler1 = list(zip(header2,bowler1))
+
+zipped_bowler2 = list(zip(header2,bowler2))
+
+print (zipped_bowler1[0])
+print (zipped_bowler1[1])
+print (zipped_bowler1[2])
+print (zipped_bowler1[3])
+print (zipped_bowler1[4])
+
+print("\n")
+
+print (zipped_bowler2[0])
+print (zipped_bowler2[1])
+print (zipped_bowler2[2])
+print (zipped_bowler2[3])
+print (zipped_bowler2[4])
+#-----------------------
+print("\n")
 
 print("Status👉", status)
 print("\n")

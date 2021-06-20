@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-
+import pandas as pd
 
 
 URL= "https://m.cricbuzz.com/cricket-commentary/35607/ind-vs-nz-final-icc-world-test-championship-final-2021"
@@ -10,12 +10,25 @@ soup = BeautifulSoup(page.content, 'html.parser')
 result = soup.find("span", class_= "miniscore-teams ui-bat-team-scores").text
 status= soup.find("div", class_= "cbz-ui-status").text
 runrate= soup.find("span", class_="crr").text
+opponent= soup.find("span", class_= "teamscores ui-bowl-team-scores").text
 players= soup.find_all("span", class_= "bat-bowl-miniscore")
 batsman = players[0].text, players[1].text
 bowler = players[2].text, players[3].text
 
 player_stats = soup.find_all("td", class_="cbz-grid-table-fix")
 
+print("Status👉", status)
+print("\n")
+print(opponent)
+print(result)
+print("\n")
+print("Run Rate👉", runrate)
+print("\n")
+print("Current Batsman👉", players[0].text, " and ", players[1].text)
+print("\n")
+print("Current Bowlers👉", players[2].text, " and ", players[3].text)
+print("\n")
+#Detailed
 #Batsman
 header = [
 player_stats[0].text
@@ -106,14 +119,15 @@ print (zipped_bowler2[2])
 print (zipped_bowler2[3])
 print (zipped_bowler2[4])
 #-----------------------
-print("\n")
-
-print("Status👉", status)
-print("\n")
-print("Score👉", result)
-print("\n")
-print("Run Rate👉", runrate)
-print("\n")
-print("Current Batsman👉", players[0].text, " and ", players[1].text)
-print("\n")
-print("Current Bowlers👉", players[2].text, " and ", players[3].text)
+status = pd.DataFrame(
+    {
+        'match_status': status,
+        'run_rate': runrate,
+        'Batting': result,
+        "Yet To Bat/Completed Batting": opponent,
+        "current_batsman":batsman,
+        "current_bowler":bowler
+    })
+#print(status)
+status.to_csv('ind-vs-nz-final-icc-world-test-championship-final-2021.csv')
+print("Code Completed")
